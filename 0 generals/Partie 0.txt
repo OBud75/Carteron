@@ -1,0 +1,7 @@
+Quelle différence entre GNU et Linux ?
+
+Linux est le noyau qui gère le matériel, la mémoire.
+Le GNU c'est un ensemble d'outils pour créer un système d'exploitation
+
+Linus Torvalds a aussi créé Git
+

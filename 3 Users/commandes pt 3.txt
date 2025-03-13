@@ -1,0 +1,30 @@
+cat /etc/passwd | cut -d: -f1
+
+sudo adduser --allow-bad-names Toto
+groups Toto
+
+sudo groupadd shared
+sudo usermod -aG shared Toto
+sudo usermod -aG shared skywell
+
+groups Toto
+groups skywell
+
+sudo est utilisé pour les commandes admin
+
+Non, que les utilisateurs admin
+
+
+sudo visudo
+toto ALL=(ALL) NOPASSWD: /usr/bin/apt install *
+
+sudo usermod -aG sudo toto
+
+
+En root, une erreur peut être fatale (rm -rf /)
++ si root est attaquée par des hackers c'est finito pipo pour nous
+
+
+sudo nano /home/toto/.bashrc
+echo "Bienvenue Toto"
+

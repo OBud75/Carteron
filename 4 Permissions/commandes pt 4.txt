@@ -1,0 +1,16 @@
+mkdir "../shared"
+
+echo "echo toto" | sudo tee "/mnt/c/Users/benja/Desktop/exam linux/shared/owned_by_toto" > /dev/null
+sudo mv "/mnt/c/Users/benja/Desktop/exam linux/shared/owned_by_toto" /home/Toto/
+sudo chown Toto:Toto /home/Toto/owned_by_toto
+ls -l /home/Toto/owned_by_toto
+Contournement obligatoire car windows refuse le changement de propriétaire même avec sudo
+
+sudo chmod +x "/mnt/c/Users/benja/Desktop/exam linux/shared/owned_by_toto"
+"/mnt/c/Users/benja/Desktop/exam linux/shared/owned_by_toto"
+
+sudo chmod u+x "/mnt/c/Users/benja/Desktop/exam linux/shared/owned_by_toto"
+
+sudo chmod g+x owned_by_toto permet d'ajouter le droit d'exécution au groupe sur le fichier owned_by_toto
+
+sudo chown root:root owned_by_toto permet de changer le propriétaire et le groupe du fichier pour root

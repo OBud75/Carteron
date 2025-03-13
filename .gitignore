@@ -1,0 +1,11 @@
+# Ignorer les environnements virtuels Python
+pythonvenv/
+
+# Ignorer les fichiers temporaires de l'éditeur
+*.swp
+*.swo
+
+# Ignorer les fichiers compilés Python
+__pycache__/
+*.pyc
+*.pyo

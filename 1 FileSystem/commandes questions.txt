@@ -1,0 +1,39 @@
+Création dossier assets root dossier exam
+mkdir "/mnt/c/Users/benja/Desktop/exam linux/assets"
+
+création 10 fichiers png
+cd "/mnt/c/Users/benja/Desktop/exam linux/assets"
+touch img_{1..10}.png
+
+fichier du_texte
+echo "Hello, world" > du_texte.txt
+
+rename jpeg
+for f in img_*.png; do mv "$f" "${f%.png}.jpeg"; done
+
+créer médias + mettre jpeg dedans
+mkdir medias
+mv *.jpeg medias/
+
+
+Les formats sont utilisés pour savoir comment sont stockées les informations.
+
+Un png ne perd pas de qualité + permet d'avoir de la transparence notamment pour des logos
+jpeg c'est un format d'image aussi un peu plus compressé -> transfert de données + simple
+txt c'est juste du texte non formaté
+
+créer fichier script
+cat <<EOF > script
+#!/usr/bin/bash
+
+echo "Hello world"
+EOF
+
+rendre exécutable
+chmod +x script
+
+exécution de vérification
+./script
+
+#!/usr/bin/bash sert à indiquer avec quel interpréteur sera utilisé pour exécuter le script.
+sans cette ligne, qui sert à FORCER l'exécuteur, le script peut être interprété par un autre.

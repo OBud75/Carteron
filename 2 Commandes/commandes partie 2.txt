@@ -1,0 +1,44 @@
+cd "/mnt/c/Users/benja/Desktop/exam linux/2 Commandes"
+mkdir commandes
+
+seq -f "Ligne %g" 1 100 > too_long
+head -n 5 too_long
+tail -n 7 too_long
+sort -V too_long | tail -n 3 | head -n 3
+sed -n '42p' too_long
+
+sed -i '42s/.*/The Ultimate Question of Life, the Universe and Everything/' too_long
+
+
+cat <<EOF > script
+#!/usr/bin/bash
+
+check_argv() {
+    if [[ -n "\$1" ]]; then
+        return 1  # Si argument
+    else
+        return 0
+    fi
+}
+
+echo "Arguments passés : \$@"
+
+check_argv "\$1"
+result=\$? 
+
+echo "Résultat de check_argv : \$result"
+
+case "\$2" in
+    "hello")
+        echo "Le deuxième argument est 'hello'"
+        ;;
+    "toto")
+        echo "Le deuxième argument est 'toto'"
+        ;;
+    *)
+        echo "Le deuxième argument est autre chose"
+        ;;
+esac
+EOF
+
+chmod +x script
