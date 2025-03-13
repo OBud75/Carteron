@@ -9,3 +9,4 @@ pythonvenv/
 __pycache__/
 *.pyc
 *.pyo
+pythonvenv/

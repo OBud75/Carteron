@@ -1,0 +1,19 @@
+le S de secure, donc dans le https, nos données sont chiffrées
+
+Pycharm et Clion permettent de faire des requêtes http à travers des librairies.
+
+Port 80 : HTTP (port WEB)
+Port 22 : SSH (accès distant sécurisé)
+Port 443 : HTTPS pareil que 80 mais version sécurisée
+
+sudo ufw enable
+sudo ufw disable
+
+Nginx peut permettre de faire serveur web, reverse proxy, load balancer et gestionnaire de connexions https
+
+Model View Controller
+Chaque élément est indépendant de l'autre, ce qui permet de modifier l'interface sans modifier le back.
+Elles sont faciles à tester, et à maintenir.
+Le fait qu'elles soient indépendantes permet à plusieurs personnes de travailler dessus en même temps sans se gêner.
+
+Create Read Update Delete

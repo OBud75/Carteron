@@ -1,0 +1,8 @@
+sudo systemctl daemon-reload
+
+sudo systemctl start servicename
+
+Arrêter + démarrer un service après l'arrêt
+Différence avec start : start permet de commencer un service, restart permet d'éteindre puis de rallumer un service.
+
+

@@ -1,0 +1,11 @@
+crontab -l
+
+sudo crontab -u toto -e
+30 1 * * 3 /home/toto/owned_by_toto
+30 minutes, 1h du matin, tous les jours, tous les mois, le 3ème jour de la semaine (dimanche = 0)
+
+Les dossiers cron permettent d'effectuer une tâche récurrente en fonction de la régularité : weekly = chaque semaine, daily = chaque jour, hourly = chaque heure
+Par exemple chaque vendredi à 16h30 envoyer un rapport de toutes les activités des gens pour voir leur "productivité de la semaine"
+Chaque jour à 7h00 démarrer les services réseau interne de l'entreprise
+Chaque heure regarder si on s'est pas fait pirater... Et encore peut-être chaque minutes ça...
+

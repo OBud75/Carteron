@@ -1,0 +1,43 @@
+niveau de logs = prioriser les messages en fonction de la gravité.
+
+debug, info, notice, warning, error, critical, alerte, emergency
+
+nano add_log.sh
+
+#!/usr/bin/bash
+
+LOG_FILE="/mnt/c/Users/benja/Desktop/exam linux/8 Logs/logs"
+
+USER=$(whoami)
+TIME=$(date '+%Y-%m-%d %H:%M:%S')
+
+echo "Utilisateur: $USER - Heure: $TIME" >> $LOG_FILE
+
+chmod +x add_log.sh
+
+
+sudo nano /etc/systemd/journald.conf
+SystemMaxUse=200M de base à NULL (vide)
+
+
+
+/var/log/nginx/*.log {
+    monthly               # mois
+    rotate 12             # 12 derniers logs
+    compress              # Compresser
+    missingok             # Ne pas échouer
+    notifempty            # si vide, pas rota
+    create 644 root root  # Créer nouveaux fichiers permissions 644 + propriétaire root
+    sharedscripts         # Exécuter scripts post-rotation 1 fois pour * logs
+    postrotate
+        if [ -f /run/nginx.pid ]; then
+            kill -USR1 `cat /run/nginx.pid`
+        fi
+    endscript
+}
+
+
+
+éviter la saturation de l'espace disque
+faciliter gestion logs
++ perf système

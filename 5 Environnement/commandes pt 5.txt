@@ -1,0 +1,98 @@
+mkdir environ
+
+nano environ/set_env.sh
+#!/usr/bin/bash
+
+echo "Choisissez un environnement :"
+echo "1) dev"
+echo "2) prod"
+echo "3) test"
+
+read -p "Entrez votre choix (1, 2 ou 3) : " choice
+
+case "$choice" in
+    1)
+        export ENVIRON="dev"
+        ;;
+    2)
+        export ENVIRON="prod"
+        ;;
+    3)
+        export ENVIRON="test"
+        ;;
+    *)
+        echo "Choix invalide. Veuillez entrer 1, 2 ou 3."
+        exit 1
+        ;;
+esac
+
+echo "La variable ENVIRON est maintenant définie à : $ENVIRON"
+
+echo "Pour conserver cette variable, exécutez : export ENVIRON=$ENVIRON"
+
+chmod +x environ/set_env.sh
+./environ/set_env.sh
+
+
+
+nano environ/set_env.sh
+
+#!/usr/bin/bash
+
+OLD_ENVIRON=$ENVIRON
+
+echo "Choisissez un environnement :"
+echo "1) dev"
+echo "2) prod"
+echo "3) test"
+
+read -p "Entrez votre choix (1, 2 ou 3) : " choice
+
+case "$choice" in
+    1)
+        export ENVIRON="dev"
+        ;;
+    2)
+        export ENVIRON="prod"
+        ;;
+    3)
+        export ENVIRON="test"
+        ;;
+    *)
+        echo "Choix invalide. Veuillez entrer 1, 2 ou 3."
+        exit 1
+        ;;
+esac
+
+if [[ "$OLD_ENVIRON" != "$ENVIRON" ]]; then
+    echo "La variable ENVIRON a changé : '$OLD_ENVIRON' → '$ENVIRON'"
+else
+    echo "La variable ENVIRON était déjà définie à '$ENVIRON'"
+fi
+
+echo "Pour conserver cette variable, exécutez : export ENVIRON=$ENVIRON"
+
+
+sudo apt update
+sudo apt install python3-venv
+python3 -m venv pythonvenv
+source pythonvenv/bin/activate
+pip install flask
+pip freeze > requirements.txt
+cat requirements.txt
+
+freeze permet d'enregistrer les dépendances et donc de partager facilement l'environnement
+
+touch .gitignore
+echo "pythonvenv/" >> .gitignore
+
+Comme l'environnement virtuel peut être recréé facilement avec requirements.txt, il est inutile de l'ajouter sur git, ce qui ferait augmenter la taille du projet.
+les fichiers logs par exemple ainsi que les fichiers secrets.
+Ils sont générés automatiquement par l'application ou posent de sérieux soucis de sécurité.
+
+apt update permet de mettre à jour les paquets disponibles
+et apt upgrade permet de mettre à jour les paquets installés
+autoclean : supprime les fichiers de cache inutiles
+clean : supprime tout le cache des paquets
+autoremove : supprime tous les paquets inutilisés
+purge : supprime totalement un paquet + fichiers de configuration
