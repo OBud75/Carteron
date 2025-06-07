@@ -13,7 +13,7 @@ Nginx peut permettre de faire serveur web, reverse proxy, load balancer et gesti
 
 Model View Controller
 Chaque élément est indépendant de l'autre, ce qui permet de modifier l'interface sans modifier le back.
-Elles sont faciles à tester, et à maintenir.
-Le fait qu'elles soient indépendantes permet à plusieurs personnes de travailler dessus en même temps sans se gêner.
+Elles sont faciles à tester, et à maintenir. -> oui
+Le fait qu'elles soient indépendantes permet à plusieurs personnes de travailler dessus en même temps sans se gêner. -> Pas vraiment, ll s'agit plutôt de séparer les responsabilités (dépasse largement le contexte du cours).
 
 Create Read Update Delete
