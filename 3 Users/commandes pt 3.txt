@@ -1,5 +1,10 @@
 cat /etc/passwd | cut -d: -f1
 
+# Au lieu d'afficher le contenu du fichier brut, on préferera souvent utiliser getent passwd (qui utilise la base de données systeme).
+# On abstrait le fait que les utilisateus sont stockés dans un fichier pour ne pas être tenté de modifier le fichier directement au lieu
+# des programmes comme useradd etc (et donc de faire des erreurs potentielles).
+# Encore une fois cela dépendra toujours du contexte et de ce que vous êtes en train de faire.
+
 sudo adduser --allow-bad-names Toto
 groups Toto
 
@@ -14,6 +19,8 @@ sudo est utilisé pour les commandes admin
 
 Non, que les utilisateurs admin
 
+# Les utlisateurs qui sont dans le groupe oui
+
 
 sudo visudo
 toto ALL=(ALL) NOPASSWD: /usr/bin/apt install *
@@ -24,6 +31,9 @@ sudo usermod -aG sudo toto
 En root, une erreur peut être fatale (rm -rf /)
 + si root est attaquée par des hackers c'est finito pipo pour nous
 
+# Oui mais pourquoi plus qu'avec sudo rm -rf / ?
+# Le point important à noter est qu'utiliser sudo élève les droits mais uniquement pour la commande qui suit
+# et surtout cela demandera le mot de passe contrairement à root qui peut tout supprimer sans qu'on ne lui demande aucune vérification
 
 sudo nano /home/toto/.bashrc
 echo "Bienvenue Toto"
