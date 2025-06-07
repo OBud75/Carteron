@@ -22,6 +22,14 @@ Un png ne perd pas de qualité + permet d'avoir de la transparence notamment pou
 jpeg c'est un format d'image aussi un peu plus compressé -> transfert de données + simple
 txt c'est juste du texte non formaté
 
+Linux se fie en priorité aux headers des fichiers pour savoir comment les interpréter (avec quel programme les ouvrir etc)
+Il y a des petites subtilités, mais côté programmes :
+Un bon exemple est la manière dont certaines applications graphiques ou multimédias sous Linux se comportent :
+Si on essaiee d’ouvrir un fichier .jpg avec un éditeur de texte comme nano, il ne prendra pas en compte l’extension et affichera du texte illisible.
+Par contre, si on le renomme en .txt et qu'on tente de l’ouvrir avec "Eye of GNOME" (visionneuse d'images), il refusera de le charger.
+
+
+
 créer fichier script
 cat <<EOF > script
 #!/usr/bin/bash
@@ -37,3 +45,7 @@ exécution de vérification
 
 #!/usr/bin/bash sert à indiquer avec quel interpréteur sera utilisé pour exécuter le script.
 sans cette ligne, qui sert à FORCER l'exécuteur, le script peut être interprété par un autre.
+
+Petite subtilité au niveau des permissions : 
+Avec ./script, la présence des permissions d'exécution est indispensable.
+Par contre avec bash script, Bash lit le contenu du fichier (on a donc besoin la permissions de lecture).
