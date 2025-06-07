@@ -19,6 +19,8 @@ chmod +x add_log.sh
 sudo nano /etc/systemd/journald.conf
 SystemMaxUse=200M de base à NULL (vide)
 
+# Il est possible de simplifier la manipulation du fichier avec
+# sudo systemctl edit systemd-journald
 
 
 /var/log/nginx/*.log {
@@ -38,6 +40,6 @@ SystemMaxUse=200M de base à NULL (vide)
 
 
 
-éviter la saturation de l'espace disque
+éviter la saturation de l'espace disque (et donc de ne pas avoir à payer pour plus de place oui)
 faciliter gestion logs
 + perf système
