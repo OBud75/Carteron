@@ -2,6 +2,11 @@ cd "/mnt/c/Users/benja/Desktop/exam linux/2 Commandes"
 mkdir commandes
 
 seq -f "Ligne %g" 1 100 > too_long
+
+# On peut potentiellement utiliser printf ici:
+printf "Ligne %s\n" {1..100} > too_long
+# Pas mieux ni moins bien (je trouve la syntaxe plus claire qu'avec seq mais c'est vraiment subjectif)
+
 head -n 5 too_long
 tail -n 7 too_long
 sort -V too_long | tail -n 3 | head -n 3
